@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ওয়েব ভিউয়ার + ইউটিউব জেনারেটর + নামাজ ট্র্যাকার</title>
+    <title>ইউটিউব জেনারেটর + নামাজ ট্র্যাকার</title>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -18,6 +18,11 @@
             --success-color: #4cc9f0;
             --prayer-card-bg: #ffffff;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --physics-color: #ff6b6b;
+            --chemistry-color: #48dbfb;
+            --biology-color: #1dd1a1;
+            --math-color: #feca57;
+            --english-color: #5f27cd;
         }
         
         * {
@@ -90,46 +95,6 @@
             flex-direction: column;
         }
         
-        /* ওয়েব ভিউয়ার সিস্টেম */
-        .url-input-container {
-            padding: 15px;
-            background-color: var(--light-bg);
-            display: flex;
-            gap: 10px;
-            width: 100%;
-        }
-        
-        .url-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-        
-        .action-btn {
-            padding: 0 20px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        .action-btn:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        .web-viewer {
-            flex: 1;
-            width: 100%;
-            border: none;
-            background-color: white;
-            min-height: 60vh;
-        }
-        
         /* ইউটিউব লিংক জেনারেটর */
         .youtube-generator {
             padding: 20px;
@@ -162,6 +127,16 @@
             border-radius: 8px;
             font-size: 16px;
             width: 100%;
+        }
+        
+        .subject-select {
+            padding: 12px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 100%;
+            background-color: white;
+            color: var(--dark-text);
         }
         
         .generate-btn {
@@ -232,6 +207,139 @@
             box-shadow: var(--card-shadow);
         }
         
+        /* History Section */
+        .history-container {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 30px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .history-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+            color: var(--dark-text);
+        }
+        
+        .history-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+        
+        .history-tab {
+            padding: 8px 15px;
+            background-color: var(--light-bg);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .history-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .history-tab.physics {
+            background-color: var(--physics-color);
+            color: white;
+        }
+        
+        .history-tab.chemistry {
+            background-color: var(--chemistry-color);
+            color: white;
+        }
+        
+        .history-tab.biology {
+            background-color: var(--biology-color);
+            color: white;
+        }
+        
+        .history-tab.math {
+            background-color: var(--math-color);
+            color: var(--dark-text);
+        }
+        
+        .history-tab.english {
+            background-color: var(--english-color);
+            color: white;
+        }
+        
+        .history-items {
+            display: none;
+        }
+        
+        .history-items.active {
+            display: block;
+        }
+        
+        .history-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .history-item:last-child {
+            border-bottom: none;
+        }
+        
+        .history-item-info {
+            flex: 1;
+        }
+        
+        .history-item-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .history-item-link {
+            font-size: 14px;
+            color: var(--light-text);
+            word-break: break-all;
+        }
+        
+        .history-item-date {
+            font-size: 12px;
+            color: var(--light-text);
+            margin-top: 5px;
+        }
+        
+        .history-item-actions {
+            display: flex;
+            gap: 10px;
+            margin-left: 15px;
+        }
+        
+        .history-action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--light-text);
+            transition: all 0.3s;
+        }
+        
+        .history-action-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .no-history {
+            text-align: center;
+            padding: 20px;
+            color: var(--light-text);
+        }
+        
         /* নামাজ ট্র্যাকার সিস্টেম */
         .prayer-container {
             padding: 20px;
@@ -246,6 +354,18 @@
             padding: 15px;
             border-radius: 12px;
             box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .date-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4361ee, #3a0ca3, #f72585);
         }
         
         .current-date {
@@ -258,6 +378,22 @@
             font-size: 14px;
             color: var(--light-text);
             margin-top: 5px;
+        }
+        
+        .prayer-time-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .next-prayer {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .current-time {
+            color: var(--primary-color);
         }
         
         .prayer-grid {
@@ -289,6 +425,26 @@
             width: 5px;
             height: 100%;
             background-color: var(--primary-color);
+        }
+        
+        .prayer-card.fajr::before {
+            background-color: #4cc9f0;
+        }
+        
+        .prayer-card.dhuhr::before {
+            background-color: #4361ee;
+        }
+        
+        .prayer-card.asr::before {
+            background-color: #3a0ca3;
+        }
+        
+        .prayer-card.maghrib::before {
+            background-color: #f72585;
+        }
+        
+        .prayer-card.isha::before {
+            background-color: #7209b7;
         }
         
         .prayer-name {
@@ -368,7 +524,7 @@
         
         .progress-fill {
             height: 100%;
-            background-color: var(--primary-color);
+            background: linear-gradient(90deg, #4361ee, #3a0ca3);
             width: 0%;
             transition: width 0.5s;
         }
@@ -378,42 +534,25 @@
             text-align: center;
         }
         
-        /* মোবাইল ডিভাইসের জন্য স্টাইল */
-        @media (min-width: 768px) {
-            .container {
-                max-width: 768px;
-                margin: 0 auto;
-                padding: 0;
-            }
-            
-            .tab-btn {
-                font-size: 16px;
-                padding: 18px 0;
-                flex-direction: row;
-                justify-content: center;
-                gap: 10px;
-            }
-            
-            .prayer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .url-input-container {
-                padding: 20px;
-            }
-            
-            .input-group {
-                flex-direction: row;
-            }
-            
-            .youtube-input {
-                flex: 1;
-            }
-            
-            .generate-btn {
-                width: auto;
-                padding: 12px 25px;
-            }
+        .prayer-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--light-text);
         }
         
         /* Notification styles */
@@ -456,16 +595,46 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        
+        /* মোবাইল ডিভাইসের জন্য স্টাইল */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+                margin: 0 auto;
+                padding: 0;
+            }
+            
+            .tab-btn {
+                font-size: 16px;
+                padding: 18px 0;
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .prayer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .input-group {
+                flex-direction: row;
+            }
+            
+            .youtube-input {
+                flex: 1;
+            }
+            
+            .generate-btn {
+                width: auto;
+                padding: 12px 25px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="tab-header">
-            <button class="tab-btn active" data-tab="viewer">
-                <i class="fas fa-globe"></i>
-                <span>ভিডিও ডাউনলোড </span>
-            </button>
-            <button class="tab-btn" data-tab="youtube">
+            <button class="tab-btn active" data-tab="youtube">
                 <i class="fab fa-youtube"></i>
                 <span>ইউটিউব জেনারেটর</span>
             </button>
@@ -475,25 +644,21 @@
             </button>
         </div>
         
-        <!-- ওয়েব ভিউয়ার ট্যাব -->
-        <div class="tab-content active" id="viewer">
-            <div class="url-input-container">
-                <input type="text" class="url-input" id="urlInput" placeholder="https://example.com" value="https://y2mate.com">
-                <button class="action-btn" id="viewBtn">
-                    <i class="fas fa-eye"></i>
-                </button>
-            </div>
-            <div class="spinner" id="webViewerSpinner"></div>
-            <iframe class="web-viewer" id="webViewer"></iframe>
-        </div>
-        
         <!-- ইউটিউব লিংক জেনারেটর ট্যাব -->
-        <div class="tab-content" id="youtube">
+        <div class="tab-content active" id="youtube">
             <div class="youtube-generator">
                 <div class="generator-card">
                     <h2 style="text-align: center; margin-bottom: 20px;">ইউটিউব লিংক জেনারেটর</h2>
                     <div class="input-group">
                         <input type="text" class="youtube-input" id="youtubeIdInput" placeholder="ইউটিউব ভিডিও আইডি বা URL (যেমন: dQw4w9WgXcQ বা https://youtu.be/dQw4w9WgXcQ)">
+                        <select class="subject-select" id="subjectSelect">
+                            <option value="">সাবজেক্ট নির্বাচন করুন</option>
+                            <option value="physics">ফিজিক্স</option>
+                            <option value="chemistry">কেমিস্ট্রি</option>
+                            <option value="biology">বায়োলজি</option>
+                            <option value="math">ম্যাথ</option>
+                            <option value="english">ইংলিশ</option>
+                        </select>
                         <button class="generate-btn" id="generateBtn">
                             <i class="fas fa-bolt"></i> লিংক জেনারেট করুন
                         </button>
@@ -512,6 +677,42 @@
                     <h3 style="margin-bottom: 10px; text-align: center;">ভিডিও প্রিভিউ:</h3>
                     <iframe class="youtube-preview" id="youtubePreview" allowfullscreen></iframe>
                 </div>
+                
+                <div class="history-container">
+                    <h3 class="history-title">লিংক হিস্টোরি</h3>
+                    <div class="history-tabs">
+                        <button class="history-tab active" data-subject="all">সব</button>
+                        <button class="history-tab physics" data-subject="physics">ফিজিক্স</button>
+                        <button class="history-tab chemistry" data-subject="chemistry">কেমিস্ট্রি</button>
+                        <button class="history-tab biology" data-subject="biology">বায়োলজি</button>
+                        <button class="history-tab math" data-subject="math">ম্যাথ</button>
+                        <button class="history-tab english" data-subject="english">ইংলিশ</button>
+                    </div>
+                    
+                    <div class="history-items active" id="allHistory">
+                        <!-- All history items will be added here -->
+                    </div>
+                    
+                    <div class="history-items" id="physicsHistory">
+                        <!-- Physics history items will be added here -->
+                    </div>
+                    
+                    <div class="history-items" id="chemistryHistory">
+                        <!-- Chemistry history items will be added here -->
+                    </div>
+                    
+                    <div class="history-items" id="biologyHistory">
+                        <!-- Biology history items will be added here -->
+                    </div>
+                    
+                    <div class="history-items" id="mathHistory">
+                        <!-- Math history items will be added here -->
+                    </div>
+                    
+                    <div class="history-items" id="englishHistory">
+                        <!-- English history items will be added here -->
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -521,10 +722,14 @@
                 <div class="date-header">
                     <div class="current-date" id="currentDate"></div>
                     <div class="hijri-date" id="hijriDate"></div>
+                    <div class="prayer-time-info">
+                        <span class="next-prayer" id="nextPrayer"></span>
+                        <span class="current-time" id="currentTime"></span>
+                    </div>
                 </div>
                 
                 <div class="prayer-grid">
-                    <div class="prayer-card">
+                    <div class="prayer-card fajr">
                         <div class="prayer-name">
                             <span>ফজর</span>
                             <span class="prayer-time" id="fajrTime">সকাল ৫:০০</span>
@@ -538,7 +743,7 @@
                         </div>
                     </div>
                     
-                    <div class="prayer-card">
+                    <div class="prayer-card dhuhr">
                         <div class="prayer-name">
                             <span>জোহর</span>
                             <span class="prayer-time" id="dhuhrTime">দুপুর ১:১৫</span>
@@ -552,7 +757,7 @@
                         </div>
                     </div>
                     
-                    <div class="prayer-card">
+                    <div class="prayer-card asr">
                         <div class="prayer-name">
                             <span>আসর</span>
                             <span class="prayer-time" id="asrTime">বিকাল ৪:৩০</span>
@@ -566,7 +771,7 @@
                         </div>
                     </div>
                     
-                    <div class="prayer-card">
+                    <div class="prayer-card maghrib">
                         <div class="prayer-name">
                             <span>মাগরিব</span>
                             <span class="prayer-time" id="maghribTime">সন্ধ্যা ৬:২০</span>
@@ -580,7 +785,7 @@
                         </div>
                     </div>
                     
-                    <div class="prayer-card">
+                    <div class="prayer-card isha">
                         <div class="prayer-name">
                             <span>ইশা</span>
                             <span class="prayer-time" id="ishaTime">রাত ৮:০০</span>
@@ -601,6 +806,25 @@
                         <div class="progress-fill" id="progressFill"></div>
                     </div>
                     <div class="progress-text" id="progressText">০% সম্পূর্ণ</div>
+                    
+                    <div class="prayer-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="todayPrayers">0</div>
+                            <div class="stat-label">আজ</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="weekPrayers">0</div>
+                            <div class="stat-label">এই সপ্তাহ</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="monthPrayers">0</div>
+                            <div class="stat-label">এই মাস</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalPrayers">0</div>
+                            <div class="stat-label">মোট</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -625,6 +849,18 @@
                     // সক্রিয় ট্যাব সেট করুন
                     btn.classList.add('active');
                     document.getElementById(tabId).classList.add('active');
+                    
+                    // If YouTube tab is activated, load history
+                    if (tabId === 'youtube') {
+                        loadHistory();
+                    }
+                    
+                    // If prayer tab is activated, update prayer times
+                    if (tabId === 'prayer') {
+                        updatePrayerTimes();
+                        updateNextPrayer();
+                        updateStats();
+                    }
                 });
             });
             
@@ -640,49 +876,16 @@
                 }, 3000);
             }
             
-            // ওয়েব ভিউয়ার সিস্টেম
-            const urlInput = document.getElementById('urlInput');
-            const viewBtn = document.getElementById('viewBtn');
-            const webViewer = document.getElementById('webViewer');
-            const webViewerSpinner = document.getElementById('webViewerSpinner');
-            
-            viewBtn.addEventListener('click', function() {
-                let url = urlInput.value.trim();
-                
-                if (!url) {
-                    showNotification('অনুগ্রহ করে একটি URL ইনপুট করুন', false);
-                    return;
-                }
-                
-                if (!url.startsWith('http://') && !url.startsWith('https://')) {
-                    url = 'https://' + url;
-                    urlInput.value = url;
-                }
-                
-                // Show loading spinner
-                webViewer.style.display = 'none';
-                webViewerSpinner.style.display = 'block';
-                
-                // Load the URL in the iframe
-                webViewer.onload = function() {
-                    webViewerSpinner.style.display = 'none';
-                    webViewer.style.display = 'block';
-                };
-                
-                webViewer.src = url;
-            });
-            
-            // ডিফল্ট URL লোড করুন
-            viewBtn.click();
-            
             // ইউটিউব লিংক জেনারেটর সিস্টেম
             const youtubeIdInput = document.getElementById('youtubeIdInput');
+            const subjectSelect = document.getElementById('subjectSelect');
             const generateBtn = document.getElementById('generateBtn');
             const resultContainer = document.getElementById('resultContainer');
             const generatedLink = document.getElementById('generatedLink');
             const copyBtn = document.getElementById('copyBtn');
             const youtubePreviewContainer = document.getElementById('youtubePreviewContainer');
             const youtubePreview = document.getElementById('youtubePreview');
+            const historyTabs = document.querySelectorAll('.history-tab');
             
             // Function to extract YouTube video ID from various URL formats
             function extractVideoId(url) {
@@ -710,11 +913,124 @@
                 return null;
             }
             
-            generateBtn.addEventListener('click', function() {
+            // Function to get video title from YouTube API
+            async function getVideoTitle(videoId) {
+                try {
+                    // In a real app, you would use the YouTube API here
+                    // For demo purposes, we'll simulate a title
+                    const titles = {
+                        'dQw4w9WgXcQ': 'Never Gonna Give You Up - Rick Astley',
+                        '9bZkp7q19f0': 'PSY - GANGNAM STYLE(강남스타일)',
+                        'kJQP7kiw5Fk': 'Luis Fonsi - Despacito ft. Daddy Yankee'
+                    };
+                    
+                    return titles[videoId] || `ভিডিও ID: ${videoId}`;
+                } catch (error) {
+                    console.error('Error fetching video title:', error);
+                    return `ভিডিও ID: ${videoId}`;
+                }
+            }
+            
+            // Function to save to history
+            function saveToHistory(videoId, youtubeLink, subject, title) {
+                const history = JSON.parse(localStorage.getItem('youtubeLinkHistory')) || [];
+                const newItem = {
+                    id: Date.now(),
+                    videoId,
+                    link: youtubeLink,
+                    subject,
+                    title,
+                    date: new Date().toLocaleString('bn-BD')
+                };
+                
+                history.unshift(newItem); // Add to beginning of array
+                localStorage.setItem('youtubeLinkHistory', JSON.stringify(history));
+                
+                // Update the history display
+                loadHistory();
+            }
+            
+            // Function to load history
+            function loadHistory() {
+                const history = JSON.parse(localStorage.getItem('youtubeLinkHistory')) || [];
+                
+                // Clear all history containers
+                document.querySelectorAll('.history-items').forEach(container => {
+                    container.innerHTML = '';
+                });
+                
+                if (history.length === 0) {
+                    document.querySelectorAll('.history-items').forEach(container => {
+                        container.innerHTML = '<div class="no-history">কোনো হিস্টোরি পাওয়া যায়নি</div>';
+                    });
+                    return;
+                }
+                
+                // Populate all history
+                const allHistoryContainer = document.getElementById('allHistory');
+                history.forEach(item => {
+                    allHistoryContainer.appendChild(createHistoryItemElement(item));
+                });
+                
+                // Populate subject-specific histories
+                const subjects = ['physics', 'chemistry', 'biology', 'math', 'english'];
+                subjects.forEach(subject => {
+                    const subjectHistory = history.filter(item => item.subject === subject);
+                    const subjectContainer = document.getElementById(`${subject}History`);
+                    
+                    if (subjectHistory.length === 0) {
+                        subjectContainer.innerHTML = '<div class="no-history">কোনো হিস্টোরি পাওয়া যায়নি</div>';
+                    } else {
+                        subjectHistory.forEach(item => {
+                            subjectContainer.appendChild(createHistoryItemElement(item));
+                        });
+                    }
+                });
+            }
+            
+            // Function to create history item element
+            function createHistoryItemElement(item) {
+                const element = document.createElement('div');
+                element.className = 'history-item';
+                element.innerHTML = `
+                    <div class="history-item-info">
+                        <div class="history-item-title">${item.title}</div>
+                        <div class="history-item-link">${item.link}</div>
+                        <div class="history-item-date">${item.date}</div>
+                    </div>
+                    <div class="history-item-actions">
+                        <button class="history-action-btn copy-history" data-link="${item.link}">
+                            <i class="far fa-copy"></i>
+                        </button>
+                        <button class="history-action-btn delete-history" data-id="${item.id}">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
+                `;
+                return element;
+            }
+            
+            // Function to delete history item
+            function deleteHistoryItem(id) {
+                let history = JSON.parse(localStorage.getItem('youtubeLinkHistory')) || [];
+                history = history.filter(item => item.id !== id);
+                localStorage.setItem('youtubeLinkHistory', JSON.stringify(history));
+                loadHistory();
+                showNotification('হিস্টোরি আইটেম ডিলিট করা হয়েছে');
+            }
+            
+            // Generate button click handler
+            generateBtn.addEventListener('click', async function() {
                 const input = youtubeIdInput.value.trim();
+                const subject = subjectSelect.value;
                 
                 if (!input) {
                     showNotification('ইউটিউব ভিডিও আইডি বা URL ইনপুট করুন', false);
+                    return;
+                }
+                
+                if (!subject) {
+                    showNotification('অনুগ্রহ করে একটি সাবজেক্ট নির্বাচন করুন', false);
                     return;
                 }
                 
@@ -728,6 +1044,9 @@
                 const youtubeLink = `https://www.youtube.com/watch?v=${videoId}`;
                 const embedLink = `https://www.youtube.com/embed/${videoId}`;
                 
+                // Get video title
+                const videoTitle = await getVideoTitle(videoId);
+                
                 generatedLink.textContent = youtubeLink;
                 resultContainer.style.display = 'block';
                 
@@ -735,12 +1054,16 @@
                 youtubePreview.src = embedLink;
                 youtubePreviewContainer.style.display = 'block';
                 
-                // স্ক্রল টু রেজাল্ট
+                // Save to history
+                saveToHistory(videoId, youtubeLink, subject, videoTitle);
+                
+                // Scroll to result
                 resultContainer.scrollIntoView({ behavior: 'smooth' });
                 
                 showNotification('লিংক সফলভাবে জেনারেট হয়েছে');
             });
             
+            // Copy button click handler
             copyBtn.addEventListener('click', function() {
                 const linkText = generatedLink.textContent;
                 
@@ -759,6 +1082,58 @@
                     });
             });
             
+            // History tabs click handler
+            historyTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const subject = this.getAttribute('data-subject');
+                    
+                    // Remove active class from all tabs
+                    historyTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all history containers
+                    document.querySelectorAll('.history-items').forEach(container => {
+                        container.classList.remove('active');
+                    });
+                    
+                    // Show selected history container
+                    if (subject === 'all') {
+                        document.getElementById('allHistory').classList.add('active');
+                    } else {
+                        document.getElementById(`${subject}History`).classList.add('active');
+                    }
+                });
+            });
+            
+            // History item actions (delegated events)
+            document.addEventListener('click', function(e) {
+                // Copy history link
+                if (e.target.closest('.copy-history')) {
+                    const link = e.target.closest('.copy-history').getAttribute('data-link');
+                    navigator.clipboard.writeText(link)
+                        .then(() => {
+                            showNotification('লিংক কপি করা হয়েছে!');
+                        })
+                        .catch(err => {
+                            console.error('কপি করতে ব্যর্থ:', err);
+                            showNotification('লিংক কপি করতে সমস্যা হয়েছে। ম্যানুয়ালি কপি করুন।', false);
+                        });
+                }
+                
+                // Delete history item
+                if (e.target.closest('.delete-history')) {
+                    const id = parseInt(e.target.closest('.delete-history').getAttribute('data-id'));
+                    if (confirm('আপনি কি এই আইটেম ডিলিট করতে চান?')) {
+                        deleteHistoryItem(id);
+                    }
+                }
+            });
+            
+            // Load initial history
+            loadHistory();
+            
             // নামাজ ট্র্যাকার সিস্টেম
             const today = new Date();
             const dateFormatter = new Intl.DateTimeFormat('bn-BD', { 
@@ -770,6 +1145,21 @@
             
             document.getElementById('currentDate').textContent = dateFormatter.format(today);
             
+            // Update current time
+            function updateCurrentTime() {
+                const now = new Date();
+                const timeFormatter = new Intl.DateTimeFormat('bn-BD', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                    hour12: true
+                });
+                document.getElementById('currentTime').textContent = timeFormatter.format(now);
+            }
+            
+            setInterval(updateCurrentTime, 1000);
+            updateCurrentTime();
+            
             // হিজরি তারিখ (সিমুলেটেড)
             const hijriDate = new Intl.DateTimeFormat('bn-u-ca-islamic', {
                 day: 'numeric',
@@ -780,23 +1170,96 @@
             document.getElementById('hijriDate').textContent = hijriDate;
             
             // নামাজের সময় (সিমুলেটেড)
-            const prayerTimes = {
-                fajr: 'সকাল ৫:০০',
-                dhuhr: 'দুপুর ১:১৫',
-                asr: 'বিকাল ৪:৩০',
-                maghrib: 'সন্ধ্যা ৬:২০',
-                isha: 'রাত ৮:০০'
-            };
+            function updatePrayerTimes() {
+                const prayerTimes = {
+                    fajr: 'সকাল ৫:০০',
+                    dhuhr: 'দুপুর ১:১৫',
+                    asr: 'বিকাল ৪:৩০',
+                    maghrib: 'সন্ধ্যা ৬:২০',
+                    isha: 'রাত ৮:০০'
+                };
+                
+                Object.keys(prayerTimes).forEach(prayer => {
+                    document.getElementById(`${prayer}Time`).textContent = prayerTimes[prayer];
+                });
+            }
             
-            Object.keys(prayerTimes).forEach(prayer => {
-                document.getElementById(`${prayer}Time`).textContent = prayerTimes[prayer];
-            });
+            updatePrayerTimes();
             
             // প্রগ্রেস ট্র্যাকিং
             const prayerCheckboxes = document.querySelectorAll('.checkbox-input');
             const progressFill = document.getElementById('progressFill');
             const progressText = document.getElementById('progressText');
-            const PRAYER_STORAGE_KEY = 'prayerTracker_' + today.toISOString().split('T')[0];
+            const todayDateKey = today.toISOString().split('T')[0];
+            const PRAYER_STORAGE_KEY = 'prayerTracker_' + todayDateKey;
+            
+            // Function to update next prayer
+            function updateNextPrayer() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const currentTime = hours * 60 + minutes;
+                
+                // Simulated prayer times in minutes since midnight
+                const prayerTimesInMinutes = {
+                    fajr: 5 * 60 + 0,    // 5:00 AM
+                    dhuhr: 13 * 60 + 15,  // 1:15 PM
+                    asr: 16 * 60 + 30,     // 4:30 PM
+                    maghrib: 18 * 60 + 20, // 6:20 PM
+                    isha: 20 * 60 + 0      // 8:00 PM
+                };
+                
+                const prayerNames = {
+                    fajr: 'ফজর',
+                    dhuhr: 'জোহর',
+                    asr: 'আসর',
+                    maghrib: 'মাগরিব',
+                    isha: 'ইশা'
+                };
+                
+                let nextPrayer = null;
+                let minDiff = Infinity;
+                
+                for (const prayer in prayerTimesInMinutes) {
+                    const prayerTime = prayerTimesInMinutes[prayer];
+                    const timeDiff = prayerTime - currentTime;
+                    
+                    if (timeDiff > 0 && timeDiff < minDiff) {
+                        minDiff = timeDiff;
+                        nextPrayer = prayer;
+                    }
+                }
+                
+                if (nextPrayer) {
+                    const hoursLeft = Math.floor(minDiff / 60);
+                    const minutesLeft = minDiff % 60;
+                    
+                    let timeLeftText = '';
+                    if (hoursLeft > 0) {
+                        timeLeftText += `${hoursLeft} ঘণ্টা `;
+                    }
+                    timeLeftText += `${minutesLeft} মিনিট`;
+                    
+                    document.getElementById('nextPrayer').textContent = 
+                        `পরবর্তী নামাজ: ${prayerNames[nextPrayer]} (${timeLeftText} পর)`;
+                } else {
+                    document.getElementById('nextPrayer').textContent = 'আজকের সব নামাজ শেষ হয়েছে';
+                }
+            }
+            
+            updateNextPrayer();
+            setInterval(updateNextPrayer, 60000);
+            
+            // Function to update prayer stats
+            function updateStats() {
+                const todayPrayers = Array.from(prayerCheckboxes).filter(cb => cb.checked).length;
+                document.getElementById('todayPrayers').textContent = todayPrayers;
+                
+                // Simulated weekly and monthly stats
+                document.getElementById('weekPrayers').textContent = Math.min(todayPrayers * 7, 35);
+                document.getElementById('monthPrayers').textContent = Math.min(todayPrayers * 30, 150);
+                document.getElementById('totalPrayers').textContent = Math.min(todayPrayers * 365, 1825);
+            }
             
             // লোকাল স্টোরেজ থেকে ডেটা লোড করুন
             const savedPrayers = JSON.parse(localStorage.getItem(PRAYER_STORAGE_KEY)) || {};
@@ -824,6 +1287,7 @@
                     }
                     
                     updateProgress();
+                    updateStats();
                 });
             });
             
@@ -846,6 +1310,7 @@
             
             // ইনিশিয়াল প্রগ্রেস আপডেট
             updateProgress();
+            updateStats();
             
             // Check prayer times and show notifications
             function checkPrayerTimes() {
@@ -863,6 +1328,14 @@
                     isha: 20 * 60 + 0      // 8:00 PM
                 };
                 
+                const prayerNames = {
+                    fajr: 'ফজর',
+                    dhuhr: 'জোহর',
+                    asr: 'আসর',
+                    maghrib: 'মাগরিব',
+                    isha: 'ইশা'
+                };
+                
                 // Check if current time is within 10 minutes of any prayer time
                 for (const prayer in prayerTimesInMinutes) {
                     const prayerTime = prayerTimesInMinutes[prayer];
@@ -870,8 +1343,8 @@
                     
                     if (timeDiff <= 10) {
                         const checkbox = document.querySelector(`.checkbox-input[data-prayer="${prayer}"]`);
-                        if !checkbox.checked) {
-                            showNotification(`এখন ${prayer} নামাজের সময়!`);
+                        if (!checkbox.checked) {
+                            showNotification(`এখন ${prayerNames[prayer]} নামাজের সময়!`);
                         }
                     }
                 }
@@ -880,36 +1353,6 @@
             // Check prayer times every minute
             setInterval(checkPrayerTimes, 60000);
             checkPrayerTimes(); // Initial check
-        });
-    </script>
-</body>
-</html>                      studentId: studentIdInput.value.trim(),
-                batch: batchInput.value.trim(),
-                section: sectionInput.value.trim()
-            };
-            
-            // Handle profile photo
-            if (profilePhotoInput.files.length > 0) {
-                const file = profilePhotoInput.files[0];
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    profileData.profilePhoto = e.target.result;
-                    localStorage.setItem('tistaUniProfile', JSON.stringify(profileData));
-                    showProfileView(profileData);
-                };
-                
-                reader.readAsDataURL(file);
-            } else {
-                localStorage.setItem('tistaUniProfile', JSON.stringify(profileData));
-                showProfileView(profileData);
-            }
-        });
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', () => {
-            initSubjects();
-            checkProfileData();
         });
     </script>
 </body>
